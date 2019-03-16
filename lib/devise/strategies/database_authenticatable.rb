@@ -11,7 +11,7 @@ module Devise
         Rails.logger.info("params_authenticatable? #{params_authenticatable?}")
         Rails.logger.info("valid_params_request? #{valid_params_request?}")
         Rails.logger.info("valid_params? #{valid_params?}")
-        Rails.logger.info("with_authentication_hash #{with_authentication_hash(:params_auth, params_auth_hash))}")
+        Rails.logger.info("with_authentication_hash #{with_authentication_hash(:params_auth, params_auth_hash)}")
         super
       end
 
