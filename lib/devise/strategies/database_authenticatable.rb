@@ -7,14 +7,6 @@ module Devise
     # Default strategy for signing in a user, based on their email and password in the database.
     class DatabaseAuthenticatable < Authenticatable
 
-      def valid?
-        Rails.logger.info("params_authenticatable? #{params_authenticatable?}")
-        Rails.logger.info("valid_params_request? #{valid_params_request?}")
-        Rails.logger.info("valid_params? #{valid_params?}")
-        Rails.logger.info("with_authentication_hash #{with_authentication_hash(:params_auth, params_auth_hash)}")
-        super
-      end
-
       def authenticate!
         resource  = password.present? && mapping.to.find_for_database_authentication(authentication_hash)
         hashed = false

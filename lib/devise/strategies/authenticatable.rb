@@ -75,6 +75,10 @@ module Devise
       #   * If all authentication keys are present;
       #
       def valid_for_params_auth?
+        Rails.logger.info("params_authenticatable? #{params_authenticatable?}")
+        Rails.logger.info("valid_params_request? #{valid_params_request?}")
+        Rails.logger.info("valid_params? #{valid_params?}")
+        Rails.logger.info("with_authentication_hash #{with_authentication_hash(:params_auth, params_auth_hash)}")
         params_authenticatable? && valid_params_request? &&
           valid_params? && with_authentication_hash(:params_auth, params_auth_hash)
       end
