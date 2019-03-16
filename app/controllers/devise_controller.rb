@@ -105,9 +105,12 @@ MESSAGE
     no_input = devise_mapping.no_input_strategies
 
     authenticated = if no_input.present?
+      Rails.logger.info("no_input #{no_input}")
       args = no_input.dup.push scope: resource_name
+      Rails.logger.info("no_input args #{args}")
       warden.authenticate?(*args)
     else
+      Rails.logger.info("resoure_name #{resource_name}")
       warden.authenticated?(resource_name)
     end
 
